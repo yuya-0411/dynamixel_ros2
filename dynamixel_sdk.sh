@@ -1,0 +1,3 @@
+cd ~/ros2_humble/src
+git clone -b $ROS_DISTRO-devel https://github.com/ROBOTIS-GIT/DynamixelSDK.git
+cd ~/ros2_humble && colcon build --symlink-install --continue-on-error --packages-skip-build-finished
