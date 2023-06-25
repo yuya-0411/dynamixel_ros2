@@ -39,12 +39,11 @@
 
 #include "read_write_node.hpp"
 
-// Control table address for X series (except MX-106)
-https://emanual.robotis.com/docs/en/dxl/mx/mx-106
-#define ADDR_OPERATING_MODE 10
-#define ADDR_TORQUE_ENABLE 24
-#define ADDR_GOAL_POSITION 30
-#define ADDR_PRESENT_POSITION 36
+// Control table address for X series (except XL-320)
+#define ADDR_OPERATING_MODE 11
+#define ADDR_TORQUE_ENABLE 64
+#define ADDR_GOAL_POSITION 116
+#define ADDR_PRESENT_POSITION 132
 
 // Protocol version
 #define PROTOCOL_VERSION 2.0  // Default Protocol version of DYNAMIXEL X series.

@@ -22,18 +22,21 @@
 #include "rclcpp/rclcpp.hpp"
 #include "rcutils/cmdline_parser.h"
 #include "dynamixel_sdk/dynamixel_sdk.h"
-#include "dynamixel_sdk_custom_interfaces/msg/set_position.hpp"
-#include "dynamixel_sdk_custom_interfaces/srv/get_position.hpp"
-
-
-class ReadWriteNode : public rclcpp::Node
+// #include "dynamixel_sdk_custom_interfaces/msg/set_position.hpp"
+// #include "dynamixel_sdk_custom_interfaces/srv/get_position.hpp"
+#include "dynamixel_sdk_examples/SyncGetPosition.h"
+#include "dynamixel_sdk_examples/SyncSetPosition.h"
+// dynamixel_sdk_examples::SyncGetPosition::Request
+class SyncReadWriteNode : public rclcpp::Node
 {
 public:
-  using SetPosition = dynamixel_sdk_custom_interfaces::msg::SetPosition;
-  using GetPosition = dynamixel_sdk_custom_interfaces::srv::GetPosition;
+  using SetPosition = dynamixel_sdk_examples::msg::SyncSetPosition;
+  using GetPosition = dynamixel_sdk_examples::srv::SyncGetPosition;
 
-  ReadWriteNode();
-  virtual ~ReadWriteNode();
+  SyncReadWriteNode();
+  virtual ~SyncReadWriteNode();
+  syncGetPresentPositionCallback();
+  syncSetPositionCallback();
 
 private:
   rclcpp::Subscription<SetPosition>::SharedPtr set_position_subscriber_;
