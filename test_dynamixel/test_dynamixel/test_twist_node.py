@@ -21,20 +21,20 @@ class PubSubNode(Node):
         # ログの出力
         # self.get_logger().info(f"x vel : [{msg.linear.x}]")
         
-        msg = SetPosition()
-        msg.id = 0
-        msg.position = 2048 * (1 + msg.linear.x)
+        posMsg = SetPosition()
+        posMsg.id = 0
+        posMsg.position = 2048 * (1 + msg.linear.x)
         
-        if msg.position < 1023:
-            msg.position = 1023
-        elif msg.position > 3060:
-            msg.position = 3060
+        if posMsg.position < 1023:
+            posMsg.position = 1023
+        elif posMsg.position > 3060:
+            posMsg.position = 3060
             
         # メッセージのパブリッシュ
-        self.publisher.publish(msg)
+        self.publisher.publish(posMsg)
 
         # ログの出力
-        self.get_logger().info(f"Publish ID[{msg.id}] Position[{msg.position}]")
+        self.get_logger().info(f"Publish ID[{posMsg.id}] Position[{posMsg.position}]")
 
 
 def main(args=None):
