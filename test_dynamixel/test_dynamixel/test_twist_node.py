@@ -1,5 +1,6 @@
 import rclpy
 from rclpy.node import Node
+from geometry_msgs.msg import Twist
 from dynamixel_sdk_custom_interfaces.msg import SetPosition
 
 # PubSub Class
@@ -9,7 +10,7 @@ class PubSubNode(Node):
         super().__init__("control_node")
 
         # サブスクライバーの生成
-        self.subscriber = self.create_subscription(SetPosition, "/cmd_vel", self.on_subscribe, 10)
+        self.subscriber = self.create_subscription(Twist, "/cmd_vel", self.on_subscribe, 10)
 
         # パブリッシャーの生成
         self.publisher = self.create_publisher(SetPosition, "/set_position", 10)

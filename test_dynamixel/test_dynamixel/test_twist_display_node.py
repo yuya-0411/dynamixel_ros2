@@ -1,6 +1,6 @@
 import rclpy
 from rclpy.node import Node
-from dynamixel_sdk_custom_interfaces.msg import SetPosition
+from geometry_msgs.msg import Twist
 
 # Subscriber Class
 class SubscriberNode(Node):
@@ -9,7 +9,7 @@ class SubscriberNode(Node):
         super().__init__("twist_display_node")
 
         # サブスクライバーの生成
-        self.subscriber = self.create_subscription(SetPosition, "/cmd_vel", self.on_subscribe, 10)
+        self.subscriber = self.create_subscription(Twist, "/cmd_vel", self.on_subscribe, 10)
 
 
     # サブスクライブ時に呼ばれる
