@@ -23,7 +23,7 @@ class PubSubNode(Node):
         
         posMsg = SetPosition()
         posMsg.id = 0
-        posMsg.position = 2048 * (1 + msg.linear.x)
+        posMsg.position = int(2048 * (1 + msg.linear.x))
         
         if posMsg.position < 1023:
             posMsg.position = 1023
