@@ -42,15 +42,21 @@ class PubSubNode(Node):
                 posMsg.position = 1023
             elif posMsg.position > 3060:
                 posMsg.position = 3060
+            
+            # メッセージのパブリッシュ
+            self.publisher.publish(posMsg)
+            self.get_logger().info(f"Publish ID[{posMsg.id}] Position[{posMsg.position}]")
+
         else:
-            posMsg.position = 0
+            self.get_logger().info(f"NO Triger to publish. trianble or circle or crosss is the triger.")
+
 
             
-        # メッセージのパブリッシュ
-        self.publisher.publish(posMsg)
+        # # メッセージのパブリッシュ
+        # self.publisher.publish(posMsg)
 
         # ログの出力
-        self.get_logger().info(f"Publish ID[{posMsg.id}] Position[{posMsg.position}]")
+        # self.get_logger().info(f"Publish ID[{posMsg.id}] Position[{posMsg.position}]")
 
 
 def main(args=None):
