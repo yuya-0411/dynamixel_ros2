@@ -33,9 +33,10 @@ class PubSubNode(Node):
         square      = msg.buttons[3]
         
         posMsg = SetPosition()
-        posMsg.id = triangle * 1 + circle * 2 + cross * 3 - 1
+        id = triangle * 1 + circle * 2 + cross * 3 - 1
         
-        if (posMsg.id != -1):
+        if (id != -1):
+            posMsg.id
             posMsg.position = 2048 * (1 + left_x)
             
             if posMsg.position < 1023:
