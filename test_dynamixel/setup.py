@@ -23,7 +23,8 @@ setup(
             'test_node = test_dynamixel.test_node:main',
             'display_node = test_dynamixel.test_twist_display_node:main',
             'control_node = test_dynamixel.test_twist_node:main',
-            'control_demo_node = test_dynamixel.test_twist_demo_node:main'
+            'control_demo_node = test_dynamixel.test_twist_demo_node:main',
+            'joy_twist_node=joy_twist.test_joy_twist:main'
         ],
     },
 )
